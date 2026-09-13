@@ -1,7 +1,9 @@
 streamlit==1.54.0
 streamlit-webrtc==0.64.5
-# 0.10.30's Windows wheel is missing the `free` symbol required by Tasks API.
-mediapipe==0.10.21
+# MediaPipe 0.10.21 fixes Windows' missing `free` symbol, but has no Linux
+# wheel. Streamlit Cloud uses the last compatible Linux release.
+mediapipe==0.10.21; sys_platform == "win32"
+mediapipe==0.10.18; sys_platform != "win32"
 opencv-python-headless==4.10.0.84
 pandas==2.2.3
 groq>=0.12.0
