@@ -22,6 +22,8 @@ from services.coaching.voice_pipeline import VoicePipeline, autoplay_audio
 
   
 def main():
+    app_dir = os.path.dirname(os.path.abspath(__file__))
+
     st.set_page_config(
         page_icon="🏋️‍♀️",
         page_title="AI Real-time GYM Coach",
@@ -29,8 +31,8 @@ def main():
         layout="centered"
     )
 
-    load_css(os.path.join(os.getcwd(), "static", "style.css"))
-    inject_local_font(os.path.join(os.getcwd(), "static", "AdobeClean.otf"), "AdobeClean")
+    load_css(os.path.join(app_dir, "static", "style.css"))
+    inject_local_font(os.path.join(app_dir, "static", "AdobeClean.otf"), "AdobeClean")
 
     init_db()
 
